@@ -7,12 +7,28 @@ const resultado1 = document.querySelector(".resultado");
 
 calcular1.addEventListener("click", calcularTodo);
 
-
-const cupomania = {
+//con objetos
+/* const cupomania = {
   BIENBENIDO: 80,
   SEGUNDACOMPRA: 50,
   TERCERACOMPRA: 30,
-};
+}; */
+
+//con la solucion de array
+const cupomania = [];
+cupomania.push({
+  name: "BIENBENIDO",
+  cupon: 80,
+});
+cupomania.push({
+  name: "SEGUNDACOMPRA",
+  cupon: 50,
+});
+cupomania.push({
+  name: "TERCERACOMPRA",
+  cupon: 30,
+});
+
 function calcularTodo() {
   const valor = Number(valor1.value);
   const descuento = descuento1.value;
@@ -24,12 +40,25 @@ function calcularTodo() {
 
   let cupon;
 
-  if (cupomania[descuento]) {
+  function isCuponInArray(couponElement) {
+    return couponElement.name == descuento;
+  }
+
+  const CuponInArray = cupomania.find(isCuponInArray);
+
+  if (CuponInArray) {
+    cupon = CuponInArray.cupon;
+  } else {
+    resultado1.innerText = "El Cupon No Esvalido";
+    return;
+  }
+  //con la solucion de objeetos
+  /*  if (cupomania[descuento]) {
     cupon = cupomania[descuento];
   } else {
     resultado1.innerText = "El Cupom No Esvalido";
     return;
-  }
+  } */
   /* 
   switch (descuento) {
     case "BIENBENIDO":
