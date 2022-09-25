@@ -20,11 +20,22 @@ function calcularTodo() {
   resultado1.innerText = "resultado $" + calcu;
   console.log(calcu);
 } */
-function calcularPromedio(lista) {
+/* function calcularPromedio(lista) {
   let sumaLista = 0;
   for (let i = 0; i < lista.length; i++) {
     sumaLista = sumaLista + lista[i];
   }
+  const promedio = sumaLista / lista.length;
+  console.log(promedio);
+  return promedio;
+}
+ */
+function calcularPromedio(lista) {
+  function sumarTodosElementos(valoAcumulado, nuevoValor) {
+    return valoAcumulado + nuevoValor;
+  }
+  const sumaLista = lista.reduce(sumarTodosElementos);
+
   const promedio = sumaLista / lista.length;
   console.log(promedio);
   return promedio;
