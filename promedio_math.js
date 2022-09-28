@@ -1,4 +1,4 @@
-/* const numero1 = document.querySelector(".numero1");
+/*  const numero1 = document.querySelector(".numero1");
 const numero2 = document.querySelector(".numero2");
 const numero3 = document.querySelector(".numero3");
 const calcular = document.querySelector(".calcular");
@@ -8,9 +8,9 @@ const resultado1 = document.querySelector(".resultado1");
 calcular.addEventListener("click", calcularTodo);
 
 function calcularTodo() {
-  const numerou = Number(numero1.value);
-  const numerod = Number(numero2.value);
-  const numerot = Number(numero3.value);
+  const numerou = Math.floor(numero1.value);
+  const numerod = Math.floor(numero2.value);
+  const numerot = Math.floor(numero3.value);
 
   if (!numerou || !numerod || !numerot || !calcular) {
     resultado1.innerText = "por favor llenar el formulario";
@@ -19,8 +19,8 @@ function calcularTodo() {
   calcu = (numerou + numerod + numerot) / 3;
   resultado1.innerText = "resultado $" + calcu;
   console.log(calcu);
-} */
-/* function calcularPromedio(lista) {
+}  */
+function calcularPromedio(lista) {
   let sumaLista = 0;
   for (let i = 0; i < lista.length; i++) {
     sumaLista = sumaLista + lista[i];
@@ -29,14 +29,24 @@ function calcularTodo() {
   console.log(promedio);
   return promedio;
 }
- */
-function calcularPromedio(lista) {
-  function sumarTodosElementos(valoAcumulado, nuevoValor) {
-    return valoAcumulado + nuevoValor;
-  }
-  const sumaLista = lista.reduce(sumarTodosElementos);
 
-  const promedio = sumaLista / lista.length;
-  console.log(promedio);
-  return promedio;
+function espar(lista) {
+  return !(lista.length % 2);
+}
+function esinpar(lista) {
+  return lista.length % 2;
+}
+
+function calcularMediana(lista) {
+  const listaEsPar = espar(lista);
+  if (listaEsPar) {
+    const indexMita1ListaPar = lista.length / 2 - 1;
+    const indexMita2ListaPar = lista.length / 2;
+    const listaMitades = [lista[indexMita1ListaPar], lista[indexMita2ListaPar]];
+    calcularPromedio(listaMitades);
+  } else {
+    const indexMitadListaImpar = Math.floor(lista.length / 2);
+    const medianaListaImpar = lista[indexMitadListaImpar];
+    return medianaListaImpar;
+  }
 }
