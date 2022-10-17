@@ -1,4 +1,3 @@
-/*
 const numero1 = document.querySelector(".numero1");
 const numero2 = document.querySelector(".numero2");
 const numero3 = document.querySelector(".numero3");
@@ -17,12 +16,22 @@ function calcularTodo() {
     resultado1.innerText = "por favor llenar el formulario";
     return;
   }
-  calcu = (numerou + numerod + numerot) / 3;
+  const calcu = (numerou + numerod + numerot) / 3;
   resultado1.innerText = "resultado $" + calcu;
   console.log(calcu);
-}  */
+}
 
 const PlatziMath = {};
+
+PlatziMath.calcularPromedioReduce = function calcularPromedioReduce(lista) {
+  function sumarTodosElementos(valorAcomulado, nuevoValor) {
+    return valorAcomulado + nuevoValor;
+  }
+  const sumaLista = lista.reduce(sumarTodosElementos);
+  const promedio = sumaLista / lista.length;
+  console.log(promedio);
+  return promedio;
+};
 
 PlatziMath.calcularPromedio = function calcularPromedio(lista) {
   let sumaLista = 0;
@@ -42,7 +51,8 @@ PlatziMath.esinpar = function esinpar(lista) {
   return lista.length % 2;
 };
 
-PlatziMath.calcularMediana = function calcularMediana(lista) {
+PlatziMath.calcularMediana = function calcularMediana(listaDesordenada) {
+  const lista = PlatziMath.ordenarLista(listaDesordenada);
   const listaEsPar = PlatziMath.espar(lista);
   if (listaEsPar) {
     const indexMita1ListaPar = lista.length / 2 - 1;
