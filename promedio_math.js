@@ -1,16 +1,31 @@
+const multiplicar1 = document.querySelector(".multiplicar1");
+const multiplicar2 = document.querySelector(".multiplicar2");
+
 const numero1 = document.querySelector(".numero1");
 const numero2 = document.querySelector(".numero2");
 const numero3 = document.querySelector(".numero3");
 const calcular = document.querySelector(".calcular");
 
+const multiplicar = document.querySelector(".multiplicar");
+const sumar = document.querySelector(".sumar");
+const restar = document.querySelector(".restar");
+const dividir = document.querySelector(".dividir");
+
 const resultado1 = document.querySelector(".resultado1");
+
+const resultado2 = document.querySelector(".resultado2");
 
 calcular.addEventListener("click", calcularTodo);
 
+multiplicar.addEventListener("click", multiplicar11);
+sumar.addEventListener("click", sumar11);
+restar.addEventListener("click", restar11);
+dividir.addEventListener("click", dividir11);
+
 function calcularTodo() {
-  const numerou = Math.floor(numero1.value);
-  const numerod = Math.floor(numero2.value);
-  const numerot = Math.floor(numero3.value);
+  const numerou = Number(numero1.value);
+  const numerod = Number(numero2.value);
+  const numerot = Number(numero3.value);
 
   if (!numerou || !numerod || !numerot || !calcular) {
     resultado1.innerText = "por favor llenar el formulario";
@@ -18,9 +33,48 @@ function calcularTodo() {
   }
   const calcu = (numerou + numerod + numerot) / 3;
   resultado1.innerText = "resultado $" + calcu;
-  console.log(calcu);
 }
 
+function multiplicar11() {
+  const numerouno = Number(multiplicar1.value);
+  const numerodos = Number(multiplicar2.value);
+  if (!numerouno || !numerodos) {
+    resultado2.innerText = "por favor llenar el formulario";
+    return;
+  }
+  const resul = numerouno * numerodos;
+  resultado2.innerText = "resultado " + resul;
+}
+function sumar11() {
+  const numerouno = Number(multiplicar1.value);
+  const numerodos = Number(multiplicar2.value);
+  if (!numerouno || !numerodos) {
+    resultado2.innerText = "por favor llenar el formulario";
+    return;
+  }
+  const resul = numerouno + numerodos;
+  resultado2.innerText = "resultado " + resul;
+}
+function restar11() {
+  const numerouno = Number(multiplicar1.value);
+  const numerodos = Number(multiplicar2.value);
+  if (!numerouno || !numerodos) {
+    resultado2.innerText = "por favor llenar el formulario";
+    return;
+  }
+  const resul = numerouno - numerodos;
+  resultado2.innerText = "resultado " + resul;
+}
+function dividir11() {
+  const numerouno = Number(multiplicar1.value);
+  const numerodos = Number(multiplicar2.value);
+  if (!numerouno || !numerodos) {
+    resultado2.innerText = "por favor llenar el formulario";
+    return;
+  }
+  const resul = numerouno / numerodos;
+  resultado2.innerText = "resultado " + resul;
+}
 const PlatziMath = {};
 
 PlatziMath.calcularPromedioReduce = function calcularPromedioReduce(lista) {
